@@ -1,0 +1,3 @@
+dist
+*.js
+next-env.d.ts
