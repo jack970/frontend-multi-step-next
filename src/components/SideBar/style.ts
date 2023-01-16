@@ -47,7 +47,8 @@ export const StepDescription = styled.p`
 export const SideBarWrapper = styled.div`
 	background: url("bg-sidebar-desktop.svg");
 	background-size: cover;
-	padding: 2rem 4rem 0 1.5rem;
+	padding: 2rem;
+	min-width: 15rem;
 	border-radius: var(--border-radius);
 	margin: 1rem;
 

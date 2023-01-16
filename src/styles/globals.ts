@@ -68,10 +68,6 @@ const GlobalStyle = createGlobalStyle`
     border: 1px solid var(--Purplish-blue);
   }
 
-  input[type=text]:required {
-    border: 1px solid var(--Strawberry-red);
-  }
-
   input[type=checkbox] { 
     cursor: pointer;
   }
