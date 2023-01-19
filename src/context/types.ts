@@ -34,6 +34,8 @@ export type FormValuesProps = {
 
 export type ChangeEventProps = React.ChangeEvent<HTMLInputElement>;
 export type ValueProviderProps = {
+	step: number;
+	handleStep: (step: number) => void;
 	values: FormValuesProps;
 	onChangeValues: (e: ChangeEventProps) => void;
 	handlePlanType: () => void;

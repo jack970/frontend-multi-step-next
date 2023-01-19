@@ -1,13 +1,10 @@
 import Form from "components/Form";
 import SideBar from "components/SideBar";
+import ValuesProvider from "context/valuesContext";
 import Layout from "layout";
 import Head from "next/head";
-import { useState } from "react";
 
 export default function Home() {
-	const [step, setStep] = useState(1);
-
-	const handleStep = (step: number) => setStep(step);
 	return (
 		<Layout>
 			<Head>
@@ -16,8 +13,10 @@ export default function Home() {
 				<meta name="viewport" content="width=device-width, initial-scale=1" />
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
-			<SideBar currentStep={step} handleStep={handleStep} />
-			<Form currentStep={step} handleStep={handleStep} />
+			<ValuesProvider>
+				<SideBar />
+				<Form />
+			</ValuesProvider>
 		</Layout>
 	);
 }

@@ -4,7 +4,9 @@ import { Fragment, useContext } from "react";
 import * as S from "./style";
 
 const Step4 = () => {
-	const { values } = useContext(ValuesContext) as ValueProviderProps;
+	const { values, handleStep } = useContext(
+		ValuesContext
+	) as ValueProviderProps;
 	const { planSelected, planType, addOn } = values;
 	const { title: titleSelected, value: priceSelected } = planSelected;
 
@@ -28,7 +30,9 @@ const Step4 = () => {
 				<S.SummaryType type="header">
 					<S.SummaryTitle>
 						{titleSelected} ({planType === "month" ? "Monthly" : "Yearly"})
-						<S.ButtonChange>Change</S.ButtonChange>
+						<S.ButtonChange onClick={() => handleStep(2)}>
+							Change
+						</S.ButtonChange>
 					</S.SummaryTitle>
 					<S.SummaryDescription
 						type="price"

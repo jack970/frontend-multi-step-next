@@ -71,7 +71,10 @@ export const ValuesContext = React.createContext<ValueProviderProps | null>(
 );
 
 const ValuesProvider: React.FC<Props> = ({ children }) => {
+	const [step, setStep] = React.useState(1);
 	const [values, setValues] = React.useState<FormValuesProps>(initialValues);
+
+	const handleStep = (step: number) => setStep(step);
 
 	const onChangeValues = (e: ChangeEventProps) => {
 		const { value, name } = e.target;
@@ -92,6 +95,8 @@ const ValuesProvider: React.FC<Props> = ({ children }) => {
 	return (
 		<ValuesContext.Provider
 			value={{
+				step,
+				handleStep,
 				values,
 				onChangeValues,
 				handlePlanType,

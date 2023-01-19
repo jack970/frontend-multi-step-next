@@ -1,15 +1,15 @@
-import ValuesProvider from "../../context/valuesContext";
+import { ValueProviderProps } from "context/types";
+import { ValuesContext } from "context/valuesContext";
+import React, { Fragment } from "react";
 import LayoutForm from "./Layout";
 import StepInfos from "./stepInfo";
 
-type FormProps = {
-	currentStep: number;
-	handleStep: Function;
-};
-
-const Form = ({ currentStep, handleStep }: FormProps) => {
+const Form = () => {
+	const { handleStep, step: currentStep } = React.useContext(
+		ValuesContext
+	) as ValueProviderProps;
 	return (
-		<ValuesProvider>
+		<Fragment>
 			{StepInfos.map(
 				(form) =>
 					currentStep === form.step && (
@@ -24,7 +24,7 @@ const Form = ({ currentStep, handleStep }: FormProps) => {
 						</LayoutForm>
 					)
 			)}
-		</ValuesProvider>
+		</Fragment>
 	);
 };
 
